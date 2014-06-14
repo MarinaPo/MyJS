@@ -1,0 +1,150 @@
+﻿<!-- ko with: example -->
+@Styles.Render("~/Content/CustomStyles")
+@Styles.Render("~/Content/CustomStyles/orderlist.css")
+<fieldset>
+    <legend>Клиенты</legend>
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2">
+            <select class="form-control">
+                <option value="10">Show 10 items</option>
+                <option value="25">Show 25 items</option>
+            </select>
+        </div>
+    </div>
+    <br />
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Город</th>
+                <th>Адрес</th>
+                <th>Организация</th>
+                <th>Телефон</th>
+                <th>Оборудование</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: pagedRows">
+            <tr>
+                <td data-bind="text: FIO"></td>
+                <td data-bind="text: City"></td>
+                <td data-bind="text: Address"></td>
+                <td data-bind="text: Organization"></td>
+                <td data-bind="text: Telephone"></td>
+                <td>
+                    <button class="lbl-sortOrders btn-block"><span class="glyphicon glyphicon-hdd"></span></button>
+                </td>
+                <td>
+                    <button class="lbl-sortOrders btn-block"><span class="glyphicon glyphicon-edit"></span></button>
+                </td>
+                <td>
+                    <button class="lbl-sortOrders btn-block"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="row">
+        <h5 class="col-md-4">Page # <strong data-bind="text: pageIndex"></strong> from <strong data-bind="text: maxPageIndex"></strong></h5>
+        <button class="col-md-1 btn btn-primary btn-xs navigation-buttons" data-bind="click: navigationToFirst, enable: pageIndex() > 1">First</button>
+        <button class="col-md-1 btn btn-primary btn-xs navigation-buttons" data-bind="click: previousPage, enable: pageIndex() > 1"><span class="glyphicon glyphicon-backward"></span> Backward</button>
+        <button class="col-md-1 btn btn-primary btn-xs navigation-buttons" data-bind="click: nextPage, enable: pageIndex() < maxPageIndex()">Forward  <span class="glyphicon glyphicon-forward"></span></button>
+        <button class="col-md-1 btn btn-primary btn-xs navigation-buttons" data-bind="click: navigationToLast, disable: pageIndex() == maxPageIndex()">Last</button>
+    </div>
+</fieldset>
+
+<!-- Bottom section -->
+<div class="row">
+    <!-- Totals section -->
+    <div class="col-md-6">
+        <fieldset class="fff">
+            <legend>Добавить клиента</legend>
+            <div class="row">
+                <div class="col-md-6 dtitle">ФИО</div>
+                <div class="col-md-6">
+                    <input type="text" id="OrderNumber" class="form-control input-sm" data-bind="value: fio" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Город</div>
+                <div class="col-md-6">
+                    <input type="text" id="OrderNumber" class="form-control input-sm" data-bind="value: city" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Адрес</div>
+                <div class="col-md-6">
+                    <input type="text" id="OrderNumber" class="form-control input-sm" data-bind="value: address" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Организация</div>
+                <div class="col-md-6">
+                    <input type="text" id="OrderNumber" class="form-control input-sm" data-bind="value: organization" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Телефон</div>
+                <div class="col-md-6">
+                    <input type="text" id="OrderNumber" class="form-control input-sm" data-bind="value: telephone" />
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-md-6 dtitle"></div>
+                <div class=" col-md-offset-9">
+                    <button class="btn btn-primary" data-bind="click: app.navigateToLoggedIn">Добавить</button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset class="fff">
+            <legend>Добавить оборудование</legend>
+            <!-- Card info section -->
+            <div class="row">
+                <div class="col-md-6 dtitle">ФИО<span class="star">*</span></div>
+                <div class="col-md-6">
+                    <input type="text" id="CardNumber" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Оборудование<span class="star">*</span></div>
+                <div class="col-md-6">
+                    <input type="text" id="CVV2" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 dtitle">Гарантия<span class="star">*</span></div>
+                <div class="col-md-6">
+                    <input type="date" id="ExpiryDate" class="form-control input-sm" />
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-6 dtitle"></div>
+                <div class=" col-md-offset-9">
+                    <button class="btn btn-primary" data-bind="click: app.navigateToLoggedIn">Добавить</button>
+                </div>
+            </div>
+         </fieldset>
+    </div>
+</div> <!-- Bottom section ends -->
+<!-- Action buttons -->
+<br />
+<div class="row">
+    <div class="col-md-offset-9">
+        <button class="btn btn-default" data-bind="click: app.navigateToNumber">Save</button>
+        <button class="btn btn-default" data-bind="click: app.navigateToNumber">Order</button>
+        <button class="btn btn-default" data-bind="click: app.navigateToLoggedIn">Cancel</button>
+    </div>
+</div>
+
+<!-- /ko -->

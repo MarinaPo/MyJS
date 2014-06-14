@@ -1,0 +1,102 @@
+﻿.btn-sortOrders {
+  color: #000000;
+  background-color: #cccccc;
+  border-color: #999999;
+    padding-right: 5px;
+}
+ .fff {
+   height: 300px;
+ }
+
+.btn-sortOrders:hover,
+.btn-sortOrders:focus,
+.btn-sortOrders:active,
+.btn-sortOrders.active,
+.open .dropdown-toggle.btn-sortOrders {
+  color: #ffffff;
+  background-color: #cccccc;
+  border-color: #999999;
+}
+
+.btn-sortOrders:active,
+.btn-sortOrders.active,
+.open .dropdown-toggle.btn-sortOrders {
+  background-image: none;
+}
+
+.btn-sortOrders.disabled,
+.btn-sortOrders[disabled],
+fieldset[disabled] .btn-sortOrders,
+.btn-sortOrders.disabled:hover,
+.btn-sortOrders[disabled]:hover,
+fieldset[disabled] .btn-sortOrders:hover,
+.btn-sortOrders.disabled:focus,
+.btn-sortOrders[disabled]:focus,
+fieldset[disabled] .btn-sortOrders:focus,
+.btn-sortOrders.disabled:active,
+.btn-sortOrders[disabled]:active,
+fieldset[disabled] .btn-sortOrders:active,
+.btn-sortOrders.disabled.active,
+.btn-sortOrders[disabled].active,
+fieldset[disabled] .btn-sortOrders.active {
+  background-color: #cccccc;
+  border-color: #999999;
+}
+
+.lbl-sortOrders {
+  color: #000000;
+  background-color: #cccccc;
+  border-color: #999999;
+
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+
+  /*text-transform: none;
+  letter-spacing: normal;*/
+
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.arrow-chevron-up {
+  background-image: url("../Images/Arrows/desc.gif");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.arrow-chevron-down {
+  background-image: url("../Images/Arrows/asc.gif");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.arrow-chevron-both {
+  background-image: url("../Images/Arrows/bg.gif");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+
+.arrow-text-chevron-up:after {
+  content: "\02c4";
+}
+
+.arrow-text-chevron-down:after {
+  content: "\02c5";
+}
+
+.arrow-text-chevron-both:after {
+  content: "\2002";
+}

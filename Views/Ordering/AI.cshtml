@@ -1,0 +1,81 @@
+﻿<!-- ko with: ai -->
+@Styles.Render("~/Content/CustomStyles/ai.css")
+
+<form role="form">
+    
+
+    <div class="row form-group">
+        <label class="col-sm-3 control-label">Searc for item by:</label>
+        <div class="col-sm-9">
+            <div class="col-sm-3" >
+                <select data-bind="options: searchFields, optionsText: 'title', optionsValue: 'name', value: chooseField" class="form-control"></select>
+            </div>
+            <div class="col-sm-3" >
+                <input data-bind="value: searchText" type="text" class="form-control" />
+            </div>
+            <div class="col-sm-3">
+                <input data-bind="click: search" type="button" class="btn btn-default" value="Search" />
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row form-group">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr data-bind="foreach: searchFields">
+                    <th data-bind="text: title, click: $parent.sort"></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: filteredItems">
+                <tr>
+                    <td><span data-bind="text: name"></span></td>
+                    <td><span data-bind="text: description"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+
+    <div id="add" class="row form-group">
+        <button type="button" class="btn btn-default col-md-2 col-md-offset-10">Add</button>
+    </div>
+    <div class="row form-horizontal">
+        <fieldset class="the-fieldset">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Item</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Price</label>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Quantity</label>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Dimension</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <option >Item</option>
+                        <option >Box</option>
+                        <option >Package</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-offset-6 col-md-11">
+            <button type="button" class="btn btn-default col-md-2" data-bind="click: app.navigateToBuying">Remove</button>
+            <button type="button" class="btn btn-default col-md-2" data-bind="click: app.navigateToBuying">Done</button>
+            <button type="button" class="btn btn-default col-md-2" data-bind="click: app.navigateToBuying">Cancel</button>
+        </div>
+    </div>
+</form>
+
+<!-- /ko -->

@@ -1,0 +1,40 @@
+﻿<!-- ko with: login -->
+@Styles.Render("~/Content/CustomStyles")
+
+<div class="row">
+    <div class="col-md-7">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <legend>Ordering management system</legend>
+                <ul class="text-danger" data-bind="foreach: errors">
+                    <li data-bind="text: $data"></li>
+                </ul>
+                <div class="form-group">
+                    <label for="LoginUserName" class="col-md-2 control-label">User name</label>
+                    <div class="col-md-8">
+                        <input type="text" id="LoginUserName" class="form-control" data-bind="value: userName, hasFocus: true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="LoginPassword" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-8">
+                        <input type="password" id="LoginPassword" class="form-control" data-bind="value: password" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <div class="checkbox">
+                            <input type="checkbox" id="LoginRememberMe" data-bind="checked: rememberMe" />
+                            <label for="LoginRememberMe">Remember User Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-default" data-bind="click: login, disable: loggingIn">Log in</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<!-- /ko -->

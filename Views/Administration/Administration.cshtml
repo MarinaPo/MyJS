@@ -1,0 +1,125 @@
+﻿<!-- ko with: administration -->
+<div class="row">
+    <div class="row">
+        <br />
+        <h6 class="col-md-12">This page is appointed for creating new and managing existing users</h6>
+        <div class="col-md-12">
+            <a href="" data-bind="click: register">Create New User</a>
+        </div>
+        <h6 class="col-md-12">Number of Found Users <strong data-bind="text: numberOfFoundUsers">#</strong></h6>
+    </div>
+
+    <fieldset class="the-fieldset">
+        <legend class="the-legend">Search by</legend>
+        <div class="field-filter row col-md-12">Field Filter</div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="padding-left-right col-md-4">
+                    <select id="typefilter1" class="size-elements form-control input-sm" data-bind="options: selectField, optionsText: 'showName', optionsValue: 'name', value: chooseField"></select>
+                </div>
+                <div class="padding-left-right col-md-4">
+                    <select id="typefilter2" class="size-elements form-control input-sm" data-bind="options: selectCondition, value: chooseCondition"></select>
+                </div>
+
+                <div class="padding-left-right col-md-4">
+                    <input id="textfilter" class="size-elements form-control input-sm" data-bind="value: inputForSearchText" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="padding-left-right col-md-offset-8 col-md-4">
+                    <div class="size-elements align-right">
+                        <button class="btn-search btn btn-default" data-bind="click: clickSearchButton">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <br />
+
+    <div class="show-items-link col-md-12">
+        <a href="" data-bind="click: changeNumberOfItems">show <span data-bind="text: numberOfShowItems"></span> items</a>
+    </div>
+    <table class="table-body table table-striped">
+        <thead>
+            <tr class="table-header">
+                <!-- ko foreach: tableHeaders -->
+                <th class="sort-header" data-bind="text: title, click: $parent.sortOnCtrlKeyDown"></th>
+                <!-- /ko -->
+                <th class="action-header">Edit</th>
+                <th class="action-header">Remove</th>
+                <th class="action-header">Duplicate</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: pagedRows">
+            <tr>
+                <td data-bind="text: userName"></td>
+                <td data-bind="text: firstName"></td>
+                <td data-bind="text: lastName"></td>
+                <td data-bind="text: role"></td>
+                <td data-bind="text: email"></td>
+                <td data-bind="text: region"></td>
+                <td><button data-bind="click: $parent.showEditUserPage" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button></td>
+                <td><button data-bind="click: $parent.showDeleteMessage" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></td>
+                <td><button data-bind="click: $parent.showDuplicateUserPage" class="btn btn-default"><span class="glyphicon glyphicon-file"></span></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <h5 class="col-md-4">Page # <strong data-bind="text: pageIndex"></strong> from <strong data-bind="text: maxPageIndex"></strong></h5>
+        <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: navigationToFirst, enable: pageIndex() > 1">First</button>
+        <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: previousPage, enable: pageIndex() > 1">Backward</button>
+        <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: nextPage, enable: pageIndex() < maxPageIndex()">Forward</button>
+        <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: navigationToLast, disable: pageIndex() == maxPageIndex()">Last</button>
+    </div>
+
+</div>
+
+
+<div class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="col-md-12">
+                <fieldset class="the-fieldset modal-fieldset">
+                    <legend class="the-legend">Warning</legend>
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div style="text-align: center">
+                        <div>The user will be deleted from the List of Users.</div>
+                        <div>Are you sure you want to proceed?</div>
+                        <br />
+                        <button style="width: 60px" type="button" class="btn btn-default btn-sm" data-bind="click: deleteUser">Yes</button>
+                        <button style="width: 60px" type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+                    </div>
+                </fieldset>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade delete-fail" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="col-md-12">
+                <fieldset class="the-fieldset modal-fieldset">
+                    <legend class="the-legend">Warning</legend>
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div style="text-align: center">
+                        <div>This user was already deleted from the grid by another administrator.</div>
+                        <div>Please refresh the page to ensure.</div>
+                        <br />
+                        <button style="width: 60px" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Ok</button>
+                    </div>
+                </fieldset>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/administration")
+
+<!-- /ko -->

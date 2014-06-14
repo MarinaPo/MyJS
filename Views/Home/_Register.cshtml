@@ -1,0 +1,124 @@
+﻿<!-- ko with: register -->
+@Styles.Render("~/Content/CustomStyles/register.css")
+
+<h2>Новый пользователь</h2>
+<form name="create" class="form-horizontal" role="form">
+    <hr />
+    <ul class="text-danger" data-bind="foreach: errors">
+        <li data-bind="text: $data"></li>
+    </ul>
+   
+    <div class="form-group">
+        <label for="FirstName" class="col-md-2 control-label">ФИО</label>
+        <div class="col-md-10">
+            <input type="text" id="FirstName" class="form-control" data-bind="value: firstName, valueUpdate: 'afterkeydown'">
+        </div>
+    </div>
+        
+    <div class="form-group">
+        <label for="Email" class="col-md-2 control-label">Адрес</label>
+        <div class="col-md-10">
+            <input type="email" id="Email" class="form-control" data-bind="value: email, valueUpdate: 'afterkeydown'" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Region" class="col-md-2 control-label">Образование</label>
+        <div class="col-md-10">
+            <input name="Region" id="Region" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Region" class="col-md-2 control-label">Должность</label>
+        <div class="col-md-10">
+            <input name="Region" id="Region" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Region" class="col-md-2 control-label">Оклад</label>
+        <div class="col-md-10">
+            <input name="Region" id="Region" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="RegisterUserName" class="col-md-2 control-label">Логин</label>
+        <div class="col-md-10">
+            <input type="text" id="RegisterUserName" class="form-control" data-bind="value: userName, hasFocus: true, valueUpdate: 'afterkeydown', disable: userNameDisabled"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="RegisterPassword" class="col-md-2 control-label">Пароль</label>
+        <div class="col-md-10">
+            <input type="password" id="RegisterPassword" class="form-control" data-bind="value: password, valueUpdate: 'afterkeydown'" placeholder="***********" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="RegisterConfirmPassword" class="col-md-2 control-label">Повторить пароль</label>
+        <div class="col-md-10">
+            <input type="password" id="RegisterConfirmPassword" class="form-control" placeholder="***********" data-bind="value: confirmPassword, valueUpdate: 'afterkeydown'" required />
+        </div>
+    </div>
+
+    <div class="form-group" style="vertical-align:middle;">
+        <fieldset class="the-fieldset">
+            <legend class="the-legend">Роль</legend>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="role" value="Administrator" data-bind="checked: role" style="vertical-align:middle;" />
+                    <span style="vertical-align:middle;">Менеджер</span> <br />
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="role" value="Merchandiser" data-bind="checked: role" style="vertical-align:middle;" />
+                    <span style="vertical-align:middle;">Бухгалтер</span> <br />
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="role" value="Supervisor" data-bind="checked: role" style="vertical-align:middle;" />
+                    <span style="vertical-align:middle;">Работник</span> <br />
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" checked="checked" name="role" value="Customer" data-bind="checked: role" style="vertical-align:middle;" />
+                    <span style="vertical-align:middle;">Директор</span> <br />
+                </label>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">Создать</button>
+            <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#btnCancel">Закрыть</button>
+            <button type="submit" class="btn btn-default" onclick="create.reset();">Обновить</button>
+        </div>
+    </div>
+    <p><a href="#" data-bind="click: login">Log in</a> if you already have a local account.</p>
+</form>
+
+
+<div class="col-md-6">
+    <div align="right">
+        <div class="modal fade" id="btnCancel" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>Are you sure you want to cancel operation?</h4>
+                        <h4>All data will be lost.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" data-bind="click: app.navigateToAdministration">Yes</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

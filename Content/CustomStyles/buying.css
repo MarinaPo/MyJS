@@ -1,0 +1,26 @@
+﻿.star {
+    color: red;
+    padding-left: 2px;
+}
+
+button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.dtitle {
+    font-weight: bold;
+}
+
+/*input[type="text"] {
+   height: 20px;
+}*/
+
+div.row {
+    padding-top: 10px;
+}
+
+.masthead {
+  background-color:#5bc0de;
+}
+

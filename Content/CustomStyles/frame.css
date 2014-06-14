@@ -1,0 +1,23 @@
+﻿/* These styles make fieldset and legend combination look like a frame in requirements */
+
+legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    width:inherit; /* Or auto */
+    padding:10px 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 2px groove;
+    padding: 10px;
+}
+
+input {
+    max-width: 100%;
+}

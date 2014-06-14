@@ -1,0 +1,85 @@
+﻿.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    margin: 0px 20px;
+    width: inherit;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.the-fieldset {
+    border: 2px solid #F0F0F0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.field-filter {
+    margin: 0px;
+    padding: 0px 0px 10px 10px;
+    font-weight: bold;
+}
+
+.btn-search {
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 12px;
+}
+
+.table-header {
+    background-color: #eeeeee;
+}
+
+.table-body {
+    border: 2px solid #dddddd;
+}
+
+.padding-left-right {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.size-elements {
+    max-width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+.align-right {
+    text-align:right;
+}
+
+.show-items-link {
+    padding: 0px;
+    margin: 0px;
+    text-align: right;
+}
+
+.navigation-buttons {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.sort-header {
+    cursor: pointer;
+}
+
+.action-header {
+    cursor: default;
+}
+
+.modal-fieldset {
+    margin-top: 6px;
+    margin-bottom: -6px;
+    padding-bottom: 20px;
+}
+
+.modal-close {
+    margin-top: -18px;
+}
+
+.delete-fail {
+
+}

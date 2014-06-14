@@ -1,0 +1,172 @@
+﻿@using FreeShop.SPA.Utils
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ApplicationInfo.GetApplicationInfo().ToString()</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body style="padding-top: 0px; padding-bottom: 0px;">
+
+        <!--=========Label Logged User===============-->
+        <h4><span class="label label-info">@ApplicationInfo.GetApplicationInfo().ToString()</span></h4>
+        
+        <!--=========data-bind="with: user" references to userInfo.viewmodel.js===============-->
+        <div class="row show-grid" data-bind="with: user">
+            
+            <div class="col-md-6">
+                <div align="left">
+                    <ul class="nav nav-pills" id="layoutTabs">
+                        <li data-bind="visible: tabOrderingVisible, css: tabOrdering, click: toorderlist"><a href="#">Ordering</a></li>
+                        <li data-bind="visible: tabAdministrationVisible, css: tabAdministration, click: toadministration"><a href="#">Administration</a></li>
+                        <li data-bind="visible: tabItemsManagementVisible, css: tabItemsManagement, click: toitems"><a href="#">Items Management</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div align="right">
+                    <!--=========Label Logged User===============-->
+                    <span class="btn btn-primary btn-sm" data-bind="text: loggedUserName"></span>
+
+                    <!--=========BUTTON LOGOUT===============-->
+                    
+                    @*<button class="btn btn-danger btn-sm" data-bind="click: showLogOutDialog">Log out</button>*@                    
+
+                    <button class="btn btn-danger btn-sm" data-bind="click: logOff">Log out</button>
+                    
+
+                    @*<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#btnLogout">
+                        Log out
+                    </button>*@
+                    
+                    @*<!-- Modal -->
+                    <div class="modal fade logoutdialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h4>Are you sure you want to logout from the application?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger btn-sm" data-bind="click: logOutDialogYes">Yes</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">No</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->*@
+                    
+                    
+
+
+                    <!--=========BUTTON USER INFO===============-->
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#btnInfo" data-bind="click: getCustomerInfo">
+                        User Info
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="btnInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="padding-bottom:0px">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <div class="alert alert-danger" align="center">
+                                        <h4 class="modal-title" id="myModalLabel">User Info</h4>
+                                    </div>
+                                </div>
+                                <div class="modal-body" style="padding-bottom:0px">
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>User Name</td>
+                                                <td data-bind="text: customerFullName"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Role</td>
+                                                <td data-bind="text: customerRole"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Customer Type</td>
+                                                <td data-bind="text: customerType"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>UserBalance</td>
+                                                <td data-bind="text: customerBalance"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="alert alert-success" align="left">
+                                        <span data-bind="text: customerInformationText"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </div>
+        
+
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>*@
+        
+        <hr/>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>@ApplicationInfo.GetApplicationInfo().ToString()</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>administrator</td>
+                        </tr>
+                        <tr>
+                            <td>customer</td>
+                        </tr>
+                        <tr>
+                            <td>merchandiser</td>
+                        </tr>
+                        <tr>
+                            <td>supervisor</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </footer>
+        </div>
+
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

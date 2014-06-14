@@ -1,0 +1,59 @@
+﻿<!-- ko with: number -->
+
+<h2>Доходы и расходы</h2>
+
+<!-- Top section (Item selection table) -->
+
+<fieldset>
+    <legend>Найти</legend>
+    <div class="row">
+        <div class="padding-left-right col-md-3">
+            <span class="lbl-sortOrders btn-block"><b>Filter orders by:</b></span>
+        </div>
+        <div class="padding-left-right col-md-3">
+            <select class="size-elements form-control input-sm" data-bind="options: filterTypes, value: selectedFilterType"></select>
+        </div>
+        <div class="padding-left-right col-md-3">
+            <select class="size-elements form-control input-sm"></select>
+            <select class="size-elements form-control input-sm"></select>
+        </div>
+        <div class="padding-left-right col-md-3">
+        </div>
+    </div>
+</fieldset>
+<table class="table table-condensed table-bordered">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Месяц</th>
+            <th>Дата</th>
+            <th>Вид</th>
+            <th>Примеальные</th>
+            <th>Итого</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: pagedRows">
+        <tr>
+            <td data-bind="text: FIO"></td>
+            <td data-bind="text: Date"></td>
+            <td data-bind="text: TypeOfSalary"></td>
+            <td data-bind="text: Premium"></td>
+            <td data-bind="text: Total"></td>
+            <td data-bind="text: Mounth"></td>
+            <td><button  class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td><button  class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<div class="row">
+    <h5 class="col-md-4">Page # <strong data-bind="text: pageIndex"></strong> from <strong data-bind="text: maxPageIndex"></strong></h5>
+    <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: navigationToFirst, enable: pageIndex() > 1">First</button>
+    <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: previousPage, enable: pageIndex() > 1">Backward</button>
+    <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: nextPage, enable: pageIndex() < maxPageIndex()">Forward</button>
+    <button class="col-md-1 btn btn-default btn-xs navigation-buttons" data-bind="click: navigationToLast, disable: pageIndex() == maxPageIndex()">Last</button>
+</div>
+
+    <!-- /ko -->

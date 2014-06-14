@@ -1,0 +1,24 @@
+﻿.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: -10px;
+    margin-left: 20px;
+    width:inherit; /* Or auto */
+    padding:15px 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    font-weight: bold;
+}
+
+.the-fieldset {
+    padding-bottom: 10px;
+    border: 2px groove;
+    margin-bottom: 10px;
+}
+
+.radio {
+    padding-left: 30px;
+}
+
+
